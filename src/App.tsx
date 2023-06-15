@@ -2,17 +2,13 @@ import React from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 import {OnOff} from "./components/OnOff/OnOff";
-import {UncontrolledAccordion} from "./components/UncontrolledAccordion/Accordion";
+import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 
 function App(props: any) {
     console.log("App rendering")
     return (
-        <div>
-            <UncontrolledRating />
-            <UncontrolledRating />
-            <UncontrolledRating />
-            <UncontrolledRating />
+        <div className="App">
             <UncontrolledRating />
             <UncontrolledRating />
             <OnOff  />
