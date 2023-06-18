@@ -1,28 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 import {OnOff} from "./components/OnOff/OnOff";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
+import {Rating, RatingValue} from "./components/Rating/Rating";
+import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
+
 
 function App(props: any) {
-    console.log("App rendering")
+
+    let [ratingValue, setRatingValue] = useState<RatingValue>(0);
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false);
+    const [switchOn, setSwitchOn] = useState<boolean>(false);
+
     return (
         <div className="App">
-            <UncontrolledRating />
-            <UncontrolledRating />
-            <OnOff  />
-            <UncontrolledAccordion titleValue={"Menu"} />
-            <UncontrolledAccordion titleValue={"Users"} />
-
-            {/*<Accordion titleValue={"Menu"} collapsed={true}/>*/}
-            {/*<Accordion titleValue={"Users"} collapsed={false}/>*/}
-            {/*<Rating value={0}/>*/}
-            {/*<Rating value={1}/>*/}
-            {/*<Rating value={2}/>*/}
-            {/*<Rating value={3}/>*/}
-            {/*<Rating value={4}/>*/}
-            {/*<Rating value={5}/>*/}
+            <Rating value={ratingValue}
+                    onClick={setRatingValue}/>
+            {/*<UncontrolledRating />*/}
+            {/*<OnOff />*/}
+            {/*<OnOff on={switchOn}*/}
+            {/*       onChange={ () => {setSwitchOn(!switchOn)}} // тут указываем функцию, которая меняет булевое значение*/}
+            {/*/>*/}
+            <Accordion titleValue={"Menu"}
+                       collapsed={accordionCollapsed}
+                       onClick={() => setAccordionCollapsed(!accordionCollapsed)}/>
+            <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
         </div>
     );
 }
@@ -37,5 +41,8 @@ function PageTitle(props: PageTitlePropsType) {
 
 
 export default App;
+
+// Переделать Акордион
+// Переделать OnOf Controlled и переименовать текущий в Uncontrolled
 
 
