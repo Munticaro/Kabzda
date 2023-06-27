@@ -42,7 +42,4 @@ function PageTitle(props: PageTitlePropsType) {
 
 export default App;
 
-// Переделать Акордион
-// Переделать OnOf Controlled и переименовать текущий в Uncontrolled
-
 

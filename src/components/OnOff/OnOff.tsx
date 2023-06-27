@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 
 type PropsType = {
     on: boolean
-    onChange: () => void // Здесь указываем ананонимную функцию, которая отправляется в контролируемый стейт(UseState)
+    onChange?: () => void // Здесь указываем ананонимную функцию, которая отправляется в контролируемый стейт(UseState)
 }
 
 export const OnOff = (props: PropsType) => {
